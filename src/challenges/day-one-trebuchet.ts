@@ -1,17 +1,13 @@
 import { BaseChallenge } from "./base-challenge.js";
-import * as fs from 'fs';
 
-export default class DayOneTrebuchet extends BaseChallenge {
+export class DayOneTrebuchet extends BaseChallenge {
 
     static inputs: string[] = []
 
-    static override loadInputs(): void {
-        this.inputs.push(fs.readFileSync('src/assets/day-one-input.txt','utf8'))
-    }
-
     static override run(): void {
-        console.log('### DAY ONE: Trebuchet?!')
-        this.loadInputs()
+        console.log('\nDAY ONE: Trebuchet?!')
+        console.log('---------------------------------------')
+        this.inputs.push(this.loadInput('src/assets/day-one-input.txt'))
         this.partOne()
         this.partTwo()
     }
@@ -26,7 +22,7 @@ export default class DayOneTrebuchet extends BaseChallenge {
             if (arr.length === 0) continue
             total += parseInt(`${arr[0]}${arr[arr.length - 1]}`)
         }
-        console.log('- (Part 1) Answer: ' + total)
+        console.log('* (Part 1) Answer: ' + total)
     }
 
     private static partTwo(): void {
@@ -36,7 +32,6 @@ export default class DayOneTrebuchet extends BaseChallenge {
 
         let total = 0
         let calibrationStrings: string[] = this.inputs[0].split('\n')
-        let result: RegExpExecArray | null
         for (let str of calibrationStrings) {
             const matches: string[] = Array.from(str.matchAll(digitsRgx), x => x[1])
             if (!matches) continue
@@ -45,7 +40,6 @@ export default class DayOneTrebuchet extends BaseChallenge {
             if (digits.length === 0) continue
             total += parseInt(`${digits[0]}${digits[digits.length - 1]}`)
         }
-
-        console.log('- (Part 2) Answer: ' + total)
+        console.log('* (Part 2) Answer: ' + total)
     }
 }

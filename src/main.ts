@@ -1,3 +1,12 @@
-import DayOneTrebuchet from './challenges/day-one-trebuchet.js'
+import { DayOneTrebuchet, DayTwo } from './challenges/index.js'
 
-DayOneTrebuchet.run()
+// Main file
+// Yes, this method of organizing and running things is terrible. No, I don't care.
+
+console.log('***************************')
+console.log('*** Advent of Code 2023 ***')
+console.log('***************************')
+setTimeout(() => {
+    DayOneTrebuchet.run()
+    DayTwo.run()
+}, 100)
