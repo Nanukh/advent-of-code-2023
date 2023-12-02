@@ -10,6 +10,7 @@ export class DayOneTrebuchet extends BaseChallenge {
         this.inputs.push(this.loadInput('src/assets/day-one-input.txt'))
         this.partOne()
         this.partTwo()
+        this.inputs.length = 0
     }
 
     private static partOne(): void {
