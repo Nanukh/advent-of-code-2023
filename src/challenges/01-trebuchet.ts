@@ -36,7 +36,7 @@ export default class Trebuchet extends BaseChallenge {
     }
 
     /**
-     * Uses a conditional multiple-match lookahead regex to extract number-words and digits, regardless of character ordering
+     * Uses a conditional multiple-match lookahead regex to extract number-words and digits, regardless of token ordering
      * 
      * Note: works thanks to https://stackoverflow.com/a/33903830
      */
