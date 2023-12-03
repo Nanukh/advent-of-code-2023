@@ -1,6 +1,6 @@
 # Advent of Code 2023
 
-![Static Badge](https://img.shields.io/badge/TypeScript-v5.3.2-%233178C6?logo=typescript&logoColor=white) ![Static Badge](https://img.shields.io/badge/%E2%98%85_Stars-6-%23c28408)
+![Static Badge](https://img.shields.io/badge/TypeScript-v5.3.2-%233178C6?logo=typescript&logoColor=white) ![Static Badge](https://img.shields.io/badge/%E2%98%85_Stars-6/50-%23c28408)
 
 My answers for the Advent of Code 2023 challenge!
 
