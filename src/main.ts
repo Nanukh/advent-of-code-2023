@@ -13,10 +13,12 @@ console.log(`
   _______________________________________________________________________
                               |  
   Stars collected:   6 / 50   |                            Code by Nanukh
-  ***......................   |                 https://github.com/Nanukh`)
+  ***......................   |                 https://github.com/Nanukh
+  `)
 setTimeout(() => {
     challenges.forEach((c: BaseChallenge) => c.run())
     console.log(`
+    
         _                                                         _   
        ( )                                                       ( )  
       _|/    ______   ______   _  __   __  _   ______   ______    \\|_ 
