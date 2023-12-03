@@ -38,19 +38,17 @@ export default class GearRatios extends BaseChallenge {
             .fill(new GridNumber())
             .map(() => new Array(this.dimensions.w).fill(new GridNumber()))
             
-        // Fetch all numbers with their coordinates
-        const gridNums: GridNumber[] = []
-        let curNum: GridNumber = new GridNumber()
+        // Fetch all numbers with their coordinates, while keeping the reference in curNum
+        let refNum: GridNumber = new GridNumber()
         for (let x = 0; x < this.dimensions.h; x++) {
             for (let y = 0; y < this.dimensions.w; y++) {
                 const char = this.lines[x][y]
                 if (char >= '0' && char <= '9') {
-                    curNum.addChar(char, x, y)
-                    this.refGrid[x][y] = curNum
+                    refNum.addChar(char, x, y)
+                    this.refGrid[x][y] = refNum
                 }
                 else {
-                    if (!curNum.isEmpty()) gridNums.push(curNum)
-                    curNum = new GridNumber()
+                    refNum = new GridNumber()
                 }
             }
         }
