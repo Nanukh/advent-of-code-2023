@@ -130,4 +130,5 @@ dist
 .pnp.*
 
 # Exclude inputs
-src/assets
+src/assets/*
+!src/assets/.gitkeep
