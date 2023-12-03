@@ -1,4 +1,4 @@
-import { DayOneTrebuchet, DayTwoCubeConundrum } from './challenges/index.js'
+import { DayOneTrebuchet, DayThreeGearRatios, DayTwoCubeConundrum } from './challenges/index.js'
 
 // Main file
 // Yes, this method of organizing and running things is terrible. No, I don't care.
@@ -9,4 +9,5 @@ console.log('***************************')
 setTimeout(() => {
     DayOneTrebuchet.run()
     DayTwoCubeConundrum.run()
+    DayThreeGearRatios.run()
 }, 100)
