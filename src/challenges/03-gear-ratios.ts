@@ -1,25 +1,37 @@
 import { BaseChallenge } from "./base-challenge.js";
 import { replaceStringAt } from '../utils.js'
 
-export class DayThreeGearRatios extends BaseChallenge {
+/**
+ * https://adventofcode.com/2023/day/3
+ */
+export default class GearRatios extends BaseChallenge {
 
-    static inputs: String[] = []
-    static lines: string[]
+    inputs: String[] = []
+    lines: string[] = []
 
-    static refGrid: GridNumber[][]
-    static dimensions: Rect
+    refGrid: GridNumber[][] = []
+    dimensions: Rect = new Rect()
 
-    static override run(): void {
-        console.log('\nDAY THREE: Gear Ratios')
-        console.log('---------------------------------------')
-        this.inputs.push(this.loadInput('src/assets/day-three-input.txt'))
+    override run(): void {
+        this.inputs.push(this.loadInput('src/assets/03-input.txt'))
+        if (!this.inputs[0]) return
+
+        console.log(`\n _`)
+        console.log(`(_)   DAY THREE: Gear Ratios`)
+        console.log('____________________________\n')
         this.setup()
         this.partOne()
         this.partTwo()
         this.inputs.length = 0
     }
 
-    private static setup(): void {
+    /**
+     * Setup function to make later processing easier.
+     * 
+     * Reads the entire input file once and stores each number - initial coordinates and full value - as an object in a reference grid.
+     * This allows for easier processing later, as the reference will be the same regardless of the digit.
+     */
+    private setup(): void {
         this.lines = this.inputs[0].split('\n')
         this.dimensions = { w: this.lines[0].length, h: this.lines.length - 1 }
         this.refGrid = new Array(this.dimensions.h)
@@ -44,9 +56,18 @@ export class DayThreeGearRatios extends BaseChallenge {
         }
     }
 
-    private static partOne(): void {
+    /**
+     * Reads all adjacent characters when reading a symbol:
+     * 
+     *   - If a part number is found: add it to the total, then edit the input to remove every associated character to avoid duplicate readings
+     *   - Otherwise, if the character is not a number or if we are at relative cooridnates (0,0): do nothing
+     */
+    private partOne(): void {
         let lines: string[] = this.lines.slice()
         let total: number = 0
+
+        // This triple-nested for-loop is terrible. Too bad!
+        //
         for (let x = 0; x < this.dimensions.h; x++) {
             for (let y = 0; y < this.dimensions.w; y++) {
                 const char = lines[x][y]
@@ -69,9 +90,16 @@ export class DayThreeGearRatios extends BaseChallenge {
         console.log('* (Part 1) Answer: ' + total)
     }
 
-    private static partTwo(): void {
+    /**
+     * Same as above, but only adds the part number to an array if the reference wasn't already found.
+     * Then, simply calculates ratios for every gear connected to exactly two parts.
+     */
+    private partTwo(): void {
         let lines: string[] = this.lines.slice()
         let total: number = 0
+
+        // Ditto, still too bad!
+        //
         for (let x = 0; x < this.dimensions.h; x++) {
             for (let y = 0; y < this.dimensions.w; y++) {
                 const char = lines[x][y]
@@ -98,6 +126,9 @@ export class DayThreeGearRatios extends BaseChallenge {
     }
 }
 
+/**
+ * Utility class, stores a Rect (width, height, and origin)
+ */
 class Rect {
     w!: number
     h!: number
@@ -105,9 +136,15 @@ class Rect {
     y?: number
 }
 
+/**
+ * Utility class, represents a part number and its initial coordinates in the input
+ * 
+ *   - str - string value of the number as-is
+ *   - coords - initial coordinates as [x, y], with x = zero-indexed line number, y = zero-indexed character index
+ */
 class GridNumber {
     str: string
-    coords: number[] = []
+    coords: number[]
 
     toString(): string {
         return `\nGridNumber { str: '${this.str}', coords: [${this.coords.toString()}] }`;
@@ -115,6 +152,7 @@ class GridNumber {
 
     constructor() {
         this.str = ''
+        this.coords = []
     }
 
     addChar(char: string, x: number, y: number): void {

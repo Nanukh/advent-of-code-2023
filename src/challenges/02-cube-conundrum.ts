@@ -1,19 +1,28 @@
 import { BaseChallenge } from "./base-challenge.js";
 
-export class DayTwoCubeConundrum extends BaseChallenge {
+/**
+ * https://adventofcode.com/2023/day/2
+ */
+export default class CubeConundrum extends BaseChallenge {
 
-    static inputs: string[] = []
+    inputs: string[] = []
 
-    static override run(): void {
-        console.log('\nDAY TWO: Cube Conundrum')
-        console.log('---------------------------------------')
-        this.inputs.push(this.loadInput('src/assets/day-two-input.txt'))
+    override run(): void {
+        this.inputs.push(this.loadInput('src/assets/02-input.txt'))
+        if (!this.inputs[0]) return
+
+        console.log(`\n _`)
+        console.log(`(_)   DAY TWO: Cube Conundrum`)
+        console.log('_____________________________\n')
         this.partOne()
         this.partTwo()
         this.inputs.length = 0
     }
 
-    private static partOne(): void {
+    /**
+     * Uses separate regexes to match a digit with the associated color, then keeps possible games only based on the digit value
+     */
+    private partOne(): void {
         const redRgx: RegExp = new RegExp(/(\d+) red/g)
         const greenRgx: RegExp = new RegExp(/(\d+) green/g)
         const blueRgx: RegExp = new RegExp(/(\d+) blue/g)
@@ -36,7 +45,10 @@ export class DayTwoCubeConundrum extends BaseChallenge {
         console.log('* (Part 1) Answer: ' + total)
     }
 
-    private static partTwo(): void {
+    /**
+     * Same as above, but simply calculates the power of the smallest possible set of cubes for each game
+     */
+    private partTwo(): void {
         const redRgx: RegExp = new RegExp(/(\d+) red/g)
         const greenRgx: RegExp = new RegExp(/(\d+) green/g)
         const blueRgx: RegExp = new RegExp(/(\d+) blue/g)

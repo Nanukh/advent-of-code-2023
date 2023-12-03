@@ -1,19 +1,28 @@
 import { BaseChallenge } from "./base-challenge.js";
 
-export class DayOneTrebuchet extends BaseChallenge {
+/**
+ * https://adventofcode.com/2023/day/1
+ */
+export default class Trebuchet extends BaseChallenge {
 
-    static inputs: string[] = []
+    inputs: string[] = []
 
-    static override run(): void {
-        console.log('\nDAY ONE: Trebuchet?!')
-        console.log('---------------------------------------')
-        this.inputs.push(this.loadInput('src/assets/day-one-input.txt'))
+    override run(): void {
+        this.inputs.push(this.loadInput('src/assets/01-input.txt'))
+        if (!this.inputs[0]) return
+
+        console.log(`\n _`)
+        console.log(`(_)   DAY ONE: Trebuchet?!`)
+        console.log('__________________________\n')
         this.partOne()
         this.partTwo()
         this.inputs.length = 0
     }
 
-    private static partOne(): void {
+    /**
+     * Uses a simple regex to extract digits from the input
+     */
+    private partOne(): void {
         const letterStripRgx: RegExp = new RegExp(/\D+/g)
 
         let total = 0
@@ -26,7 +35,12 @@ export class DayOneTrebuchet extends BaseChallenge {
         console.log('* (Part 1) Answer: ' + total)
     }
 
-    private static partTwo(): void {
+    /**
+     * Uses a conditional multiple-match lookahead regex to extract number-words and digits, regardless of character ordering
+     * 
+     * Note: works thanks to https://stackoverflow.com/a/33903830
+     */
+    private partTwo(): void {
         const numberStrs: Map<string, number> = new Map<string, number>([['one', 1], ['two', 2], ['three', 3], ['four', 4], ['five', 5], ['six', 6], ['seven', 7], ['eight', 8], ['nine', 9]])
         const numberWords = [...numberStrs.keys()]
         const digitsRgx = new RegExp(/(?=(one|two|three|four|five|six|seven|eight|nine|\d))/g)

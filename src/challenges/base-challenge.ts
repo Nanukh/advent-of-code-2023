@@ -1,12 +1,14 @@
 import * as fs from 'fs';
 
-export class BaseChallenge {
+export abstract class BaseChallenge {
 
-    static loadInput(file: string): string {
-        return fs.readFileSync(file, 'utf8')
+    loadInput(file: string): string {
+        try {
+            return fs.readFileSync(file, 'utf8')
+        } catch(err) {
+            return ''
+        }
     }
 
-    static run(): void {
-        throw new Error("Method not implemented")
-    }
+    abstract run(): void
 }
