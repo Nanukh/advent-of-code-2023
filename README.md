@@ -7,7 +7,7 @@
 ![Static Badge](https://img.shields.io/badge/Levels-3/25-blue)
 ![Static Badge](https://img.shields.io/badge/%E2%98%85_Stars-6/50-%23C28408)
 
-My answers for the [Advent of Code 2023](https://adventofcode.com/2023) challenge!
+My scripts for the [Advent of Code 2023](https://adventofcode.com/2023) challenge!
 
 
 **DISCLAIMER:** I don't code that much in "raw" TypeScript, so code quality is likely going to be iffy at best...<br>
