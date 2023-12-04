@@ -34,7 +34,7 @@ export default class Scratchcards extends BaseChallenge {
             if (!matches) return
 
             const numbers = matches.map(n => parseInt(n)).sort()
-            const duplicates = numbers.filter((e, i, a) => a[i-1] === e)
+            const duplicates = numbers.filter((value, index, arr) => arr[index-1] === value)
             this.cardsWithDuplicates.push(new CardWithDuplicates(numbers, duplicates.length))
         })
     }
