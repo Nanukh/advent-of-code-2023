@@ -12,8 +12,8 @@ console.log(`
   (https://adventofcode.com) - Eric Wastl                        >>> 2023
   _______________________________________________________________________
                               |  
-  Stars collected:   6 / 50   |                            Code by Nanukh
-  ***......................   |                 https://github.com/Nanukh
+  Stars collected:   8 / 50   |                            Code by Nanukh
+  ****.....................   |                 https://github.com/Nanukh
   `)
 setTimeout(() => {
     challenges.forEach((c: BaseChallenge) => c.run())
