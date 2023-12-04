@@ -29,7 +29,7 @@ export default class Scratchcards extends BaseChallenge {
     private setup(): void {
         const numbersRgx: RegExp = new RegExp(/(\d{1,2})/g)
         const cards = this.input.split('\n').map(card => card.substring(10))
-        cards.forEach((card, index) => {
+        cards.forEach(card => {
             let matches: RegExpMatchArray | null = card.match(numbersRgx)
             if (!matches) return
 
@@ -44,8 +44,7 @@ export default class Scratchcards extends BaseChallenge {
      */
     protected partOne(): void {
         let total = 0
-        this.cardsWithDuplicates.forEach(card => {
-            if (card.matchingNumbers === 0) return
+        this.cardsWithDuplicates.filter(c => c.matchingNumbers).forEach(card => {
             total += Math.pow(2, card.matchingNumbers - 1)
         })
         console.log('* (Part 1) Answer: ' + total)
