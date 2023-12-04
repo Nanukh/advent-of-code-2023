@@ -53,7 +53,7 @@ export default class Scratchcards extends BaseChallenge {
 
     /**
      * Uses a cascading algorithm that, for each card with matching numbers, iterates on the next n cards (where n = n° of matching numbers of the current card)
-     * and increments their number of instances by the current card's number of instances. This "creates" n new cards through a counter instead of a full representation.\
+     * and increments their number of instances by the current card's number of instances . This "creates" new cards through a counter instead of a full representation.\
      * The algorithm then repeats itself for every card instance, progressing through the list until the end.
      */
     protected partTwo(): void {
