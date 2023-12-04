@@ -6,15 +6,14 @@ import { replaceStringAt } from '../utils.js'
  */
 export default class GearRatios extends BaseChallenge {
 
-    inputs: String[] = []
     lines: string[] = []
 
     refGrid: GridNumber[][] = []
     dimensions: Rect = new Rect()
 
-    override run(): void {
-        this.inputs.push(this.loadInput('src/assets/03-input.txt'))
-        if (!this.inputs[0]) return
+    run(): void {
+        this.loadInput('src/assets/03-input.txt')
+        if (!this.input) return
 
         console.log(`\n _`)
         console.log(`(_)   DAY THREE: Gear Ratios`)
@@ -22,7 +21,7 @@ export default class GearRatios extends BaseChallenge {
         this.setup()
         this.partOne()
         this.partTwo()
-        this.inputs.length = 0
+        this.input = ''
     }
 
     /**
@@ -30,9 +29,11 @@ export default class GearRatios extends BaseChallenge {
      * 
      * Reads the entire input file once and stores each number - initial coordinates and full value - as an object in a reference grid.
      * This allows for easier processing later, as the reference will be the same regardless of the digit.
+     * 
+     * See {@link Rect} and {@link GridNumber}
      */
     private setup(): void {
-        this.lines = this.inputs[0].split('\n')
+        this.lines = this.input.split('\n')
         this.dimensions = { w: this.lines[0].length, h: this.lines.length - 1 }
         this.refGrid = new Array(this.dimensions.h)
             .fill(new GridNumber())
@@ -60,7 +61,7 @@ export default class GearRatios extends BaseChallenge {
      *   - If a part number is found: add it to the total, then edit the input to remove every associated character to avoid duplicate readings
      *   - Otherwise, if the character is not a number or if we are at relative cooridnates (0,0): do nothing
      */
-    private partOne(): void {
+    protected partOne(): void {
         let lines: string[] = this.lines.slice()
         let total: number = 0
 
@@ -92,7 +93,7 @@ export default class GearRatios extends BaseChallenge {
      * Same as above, but only adds the part number to an array if the reference wasn't already found.
      * Then, simply calculates ratios for every gear connected to exactly two parts.
      */
-    private partTwo(): void {
+    protected partTwo(): void {
         let lines: string[] = this.lines.slice()
         let total: number = 0
 

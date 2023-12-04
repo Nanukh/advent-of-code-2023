@@ -5,30 +5,28 @@ import { BaseChallenge } from "./base-challenge.js";
  */
 export default class CubeConundrum extends BaseChallenge {
 
-    inputs: string[] = []
-
-    override run(): void {
-        this.inputs.push(this.loadInput('src/assets/02-input.txt'))
-        if (!this.inputs[0]) return
+    run(): void {
+        this.loadInput('src/assets/02-input.txt')
+        if (!this.input) return
 
         console.log(`\n _`)
         console.log(`(_)   DAY TWO: Cube Conundrum`)
         console.log('_____________________________\n')
         this.partOne()
         this.partTwo()
-        this.inputs.length = 0
+        this.input = ''
     }
 
     /**
      * Uses separate regexes to match a digit with the associated color, then keeps possible games only based on the digit value
      */
-    private partOne(): void {
+    protected partOne(): void {
         const redRgx: RegExp = new RegExp(/(\d+) red/g)
         const greenRgx: RegExp = new RegExp(/(\d+) green/g)
         const blueRgx: RegExp = new RegExp(/(\d+) blue/g)
 
         let total: number = 0
-        let gameStrings: string[] = this.inputs[0].split('\n')
+        let gameStrings: string[] = this.input.split('\n')
         gameStrings.pop()
         for (const str of gameStrings) {
             const gameIdStr = str.split(':')[0].replace('Game ', '')
@@ -48,13 +46,13 @@ export default class CubeConundrum extends BaseChallenge {
     /**
      * Same as above, but simply calculates the power of the smallest possible set of cubes for each game
      */
-    private partTwo(): void {
+    protected partTwo(): void {
         const redRgx: RegExp = new RegExp(/(\d+) red/g)
         const greenRgx: RegExp = new RegExp(/(\d+) green/g)
         const blueRgx: RegExp = new RegExp(/(\d+) blue/g)
 
         let total: number = 0
-        let gameStrings: string[] = this.inputs[0].split('\n')
+        let gameStrings: string[] = this.input.split('\n')
         gameStrings.pop()
         for (const str of gameStrings) {
             const redSet = str.match(redRgx)?.map(m => parseInt(m.split(' ')[0]))

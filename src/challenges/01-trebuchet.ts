@@ -5,28 +5,26 @@ import { BaseChallenge } from "./base-challenge.js";
  */
 export default class Trebuchet extends BaseChallenge {
 
-    inputs: string[] = []
-
-    override run(): void {
-        this.inputs.push(this.loadInput('src/assets/01-input.txt'))
-        if (!this.inputs[0]) return
+    run(): void {
+        this.loadInput('src/assets/01-input.txt')
+        if (!this.input) return
 
         console.log(`\n _`)
         console.log(`(_)   DAY ONE: Trebuchet?!`)
         console.log('__________________________\n')
         this.partOne()
         this.partTwo()
-        this.inputs.length = 0
+        this.input = ''
     }
 
     /**
      * Uses a simple regex to extract digits from the input
      */
-    private partOne(): void {
+    protected partOne(): void {
         const letterStripRgx: RegExp = new RegExp(/\D+/g)
 
         let total = 0
-        let calibrationStrings: string[] = this.inputs[0].split('\n')
+        let calibrationStrings: string[] = this.input.split('\n')
         for (const str of calibrationStrings) {
             const arr: string[] = str.replace(letterStripRgx, '').split('').filter(i => i)
             if (arr.length === 0) continue
@@ -40,13 +38,13 @@ export default class Trebuchet extends BaseChallenge {
      * 
      * Note: works thanks to https://stackoverflow.com/a/33903830
      */
-    private partTwo(): void {
+    protected partTwo(): void {
         const numberStrs: Map<string, number> = new Map<string, number>([['one', 1], ['two', 2], ['three', 3], ['four', 4], ['five', 5], ['six', 6], ['seven', 7], ['eight', 8], ['nine', 9]])
         const numberWords = [...numberStrs.keys()]
         const digitsRgx = new RegExp(/(?=(one|two|three|four|five|six|seven|eight|nine|\d))/g)
 
         let total = 0
-        let calibrationStrings: string[] = this.inputs[0].split('\n')
+        let calibrationStrings: string[] = this.input.split('\n')
         for (let str of calibrationStrings) {
             const matches: string[] = Array.from(str.matchAll(digitsRgx), x => x[1])
             if (!matches) continue

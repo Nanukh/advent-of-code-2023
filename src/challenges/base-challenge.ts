@@ -2,13 +2,17 @@ import * as fs from 'fs';
 
 export abstract class BaseChallenge {
 
-    loadInput(file: string): string {
+    input: string = ''
+
+    loadInput(file: string): void {
         try {
-            return fs.readFileSync(file, 'utf8')
+            this.input = fs.readFileSync(file, 'utf8')
         } catch(err) {
-            return ''
+            console.error('Could not load ' + file)
         }
     }
 
-    abstract run(): void
+    public abstract run(): void
+    protected abstract partOne(): void
+    protected abstract partTwo(): void
 }
