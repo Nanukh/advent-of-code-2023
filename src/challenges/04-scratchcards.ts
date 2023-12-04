@@ -5,7 +5,7 @@ import { BaseChallenge } from "./base-challenge.js";
  */
 export default class Scratchcards extends BaseChallenge {
 
-    cardsWithDuplicates: CardWithDuplicates[] = []
+    cardsWithDuplicates: InstancedScratchcard[] = []
 
     run(): void {
         this.loadInput('src/assets/04-input.txt')
@@ -24,7 +24,7 @@ export default class Scratchcards extends BaseChallenge {
      * Setup function.\
      * Reads every card and extracts its numbers, sorts them and calculates the number of duplicates (i.e. winning numbers)
      * 
-     * See {@link CardWithDuplicates}
+     * See {@link InstancedScratchcard}
      */
     private setup(): void {
         const numbersRgx: RegExp = new RegExp(/(\d{1,2})/g)
@@ -35,7 +35,7 @@ export default class Scratchcards extends BaseChallenge {
 
             const numbers = matches.map(n => parseInt(n)).sort()
             const duplicates = numbers.filter((value, index, arr) => arr[index-1] === value)
-            this.cardsWithDuplicates.push(new CardWithDuplicates(numbers, duplicates.length))
+            this.cardsWithDuplicates.push(new InstancedScratchcard(numbers, duplicates.length))
         })
     }
 
@@ -63,7 +63,7 @@ export default class Scratchcards extends BaseChallenge {
                 this.cardsWithDuplicates[copyIndex].instances += card.instances
             }
         })
-        total = this.cardsWithDuplicates.reduce((acc: number, card: CardWithDuplicates) => acc += card.instances, 0)
+        total = this.cardsWithDuplicates.reduce((acc: number, card: InstancedScratchcard) => acc += card.instances, 0)
         console.log('* (Part 2) Answer: ' + total)
     }
 }
@@ -71,7 +71,7 @@ export default class Scratchcards extends BaseChallenge {
 /**
  * Utility class to store a representation of a scratchcard and it's number of instances (original + copies)
  */
-class CardWithDuplicates {
+class InstancedScratchcard {
     numbers: number[]
     matchingNumbers: number
     instances: number
