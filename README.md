@@ -4,14 +4,17 @@
 ![Static Badge](https://img.shields.io/badge/NodeJS-v18-%2368A063?logo=nodedotjs&logoColor=white) 
 ![Static Badge](https://img.shields.io/badge/TypeScript-5.3.2-%233178C6?logo=typescript&logoColor=white)
 
-![Static Badge](https://img.shields.io/badge/Days_completed-4/25-blue)
-![Static Badge](https://img.shields.io/badge/%E2%98%85_Stars-8/50-%23C28408)
+![Static Badge](https://img.shields.io/badge/Days_completed-5/25-blue)
+![Static Badge](https://img.shields.io/badge/%E2%98%85_Stars-10/50-%23C28408)
 
 My scripts for the [Advent of Code 2023](https://adventofcode.com/2023) challenge!
 
+## Disclaimer
 
-**DISCLAIMER:** I don't code that much in "raw" TypeScript, so code quality is likely going to be iffy at best...<br>
-Besides, I'm not trying to build an [Enterprise Edition™](https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition) 😝
+I don't code that much in "raw" TypeScript, so code quality is likely going to be iffy at best...<br>
+Besides, I'm not trying to build an [Enterprise Edition™](https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition) 😝<br>
+
+For the sake of transparency, scripts that were completed with help will have a small note in their JSDoc. Does that make them illegitimate ? Don't know, don't care ¯\\\_(ツ)_/¯
 
 ## Installation
 
