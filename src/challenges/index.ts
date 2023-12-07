@@ -4,8 +4,9 @@ import GearRatios from './03-gear-ratios.js'
 import Scratchcards from './04-scratchcards.js'
 import IfYouGiveASeedAFertilizer from './05-if-you-give-a-seed-a-fertilizer.js'
 import WaitForIt from './06-wait-for-it.js'
+import CamelCards from './07-camel-cards.js'
 
 export default [
     new Trebuchet(), new CubeConundrum(), new GearRatios(), new Scratchcards(), new IfYouGiveASeedAFertilizer(),
-    new WaitForIt(),
+    new WaitForIt(), new CamelCards(),
 ]
