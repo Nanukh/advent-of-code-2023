@@ -14,7 +14,7 @@ export default class CamelCards extends BaseChallenge {
 
         console.log(`\n _`)
         console.log(`(_)   DAY SEVEN: Camel Cards`)
-        console.log('_______________________________________________\n')
+        console.log('____________________________\n')
         this.partOne()
         this.partTwo()
         this.input = ''

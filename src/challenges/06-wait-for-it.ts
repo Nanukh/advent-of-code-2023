@@ -13,7 +13,7 @@ export default class WaitForIt extends BaseChallenge {
 
         console.log(`\n _`)
         console.log(`(_)   DAY SIX: Wait For It`)
-        console.log('_______________________________________________\n')
+        console.log('__________________________\n')
         this.setup()
         this.partOne()
         this.partTwo()
