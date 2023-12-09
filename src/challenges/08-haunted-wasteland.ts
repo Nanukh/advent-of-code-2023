@@ -102,7 +102,7 @@ export default class HauntedWasteland extends BaseChallenge {
             }
         }
 
-        // Then calculate the Least Common Multiple (LCM) of these numbers
+        // Then calculate the Lowest Common Multiple (LCM) of these numbers
         const greatestCommonDivisor = (a: number, b: number): number => a ? greatestCommonDivisor(b % a, a) : b;
         const lowestCommonMultiple = (a: number, b: number): number => a * b / greatestCommonDivisor(a, b);
         console.log('* (Part 2) Answer: ' + pathsSteps.reduce(lowestCommonMultiple))
