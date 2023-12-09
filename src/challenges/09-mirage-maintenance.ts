@@ -61,8 +61,6 @@ export default class MirageMaintenance extends BaseChallenge {
      * For a given array of numbers, extrapolates the next value using polynomial interpolation / number series reasoning.
      * 
      * See https://adventofcode.com/2023/day/9 for the full explanation.
-     * @param arr 
-     * @returns 
      */
     private extrapolateNextNumber(arr: number[]) {
         let extrapolationSteps: number[][] = [arr]
