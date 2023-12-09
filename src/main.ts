@@ -12,7 +12,7 @@ console.log(`
   (https://adventofcode.com) - Eric Wastl                        >>> 2023
   _______________________________________________________________________
                               |  
-  Stars collected:  16 / 50   |                            Code by Nanukh
+  Stars collected:  18 / 50   |                            Code by Nanukh
   ********.................   |                 https://github.com/Nanukh
   `)
 setTimeout(() => {
