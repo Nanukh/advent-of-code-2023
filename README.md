@@ -4,8 +4,8 @@
 ![Static Badge](https://img.shields.io/badge/NodeJS-v18-%2368A063?logo=nodedotjs&logoColor=white) 
 ![Static Badge](https://img.shields.io/badge/TypeScript-5.3.2-%233178C6?logo=typescript&logoColor=white)
 
-![Static Badge](https://img.shields.io/badge/Days_completed-10/25-blue)
-![Static Badge](https://img.shields.io/badge/%E2%98%85_Stars-20/50-%23C28408)
+![Static Badge](https://img.shields.io/badge/Days_completed-11/25-blue)
+![Static Badge](https://img.shields.io/badge/%E2%98%85_Stars-22/50-%23C28408)
 
 My scripts for the [Advent of Code 2023](https://adventofcode.com/2023) challenge!
 

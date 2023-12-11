@@ -1,5 +1,9 @@
 export function replaceStringAt(str: string, index: number, replacement: string): string {
-    return str.substring(0, index) + replacement + str.substring(index + replacement.length);
+    return str.substring(0, index) + replacement + str.substring(index + replacement.length)
+}
+
+export function addStringAt(str: string, index: number, addition: string): string {
+    return str.slice(0, index) + addition + str.slice(index)
 }
 
 /**

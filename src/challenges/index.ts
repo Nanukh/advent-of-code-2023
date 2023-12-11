@@ -8,8 +8,10 @@ import CamelCards from './07-camel-cards.js'
 import HauntedWasteland from './08-haunted-wasteland.js'
 import MirageMaintenance from './09-mirage-maintenance.js'
 import PipeMaze from './10-pipe-maze.js'
+import CosmicExpansion from './11-cosmic-expansion.js'
 
 export default [
     // new Trebuchet(), new CubeConundrum(), new GearRatios(), new Scratchcards(), new IfYouGiveASeedAFertilizer(),
-    new WaitForIt(), new CamelCards(), new HauntedWasteland(), new MirageMaintenance(), new PipeMaze()
+    // new WaitForIt(), new CamelCards(), new HauntedWasteland(), new MirageMaintenance(), new PipeMaze()
+    new CosmicExpansion()
 ]

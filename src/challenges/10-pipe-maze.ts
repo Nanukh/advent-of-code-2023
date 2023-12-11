@@ -1,6 +1,5 @@
-import { findPointInPolygon, replaceStringAt } from '../utils.js'
+import { findPointInPolygon } from '../utils.js'
 import { BaseChallenge } from './base-challenge.js'
-import fs from 'node:fs'
 
 /**
  * https://adventofcode.com/2023/day/10 \
